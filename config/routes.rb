@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   get 'pages/home'
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  root "pages#home"
+  # resources :users do
+  #   resources :categories do
+  #     resources :exchanges
+  #   end
+  # end
+
+  resources :categories, only: [:index, :new, :create]
+  root "categories#index"
 end

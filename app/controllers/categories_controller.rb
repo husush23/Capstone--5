@@ -10,12 +10,18 @@ class CategoriesController < ApplicationController
     def create
         @category = Category.new(category_params)
         @category.user = current_user
-        
+
         if @category.save
           redirect_to categories_path, notice: 'Category was successfully created.'
         else
           render :new
         end
+      end
+
+      def show
+        @category = Category.find(params[:id])
+        @exchanges = @category.exchanges
+        @total_amount = @exchanges.sum(:amount)
       end
       
       private

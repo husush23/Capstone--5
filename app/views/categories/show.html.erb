@@ -1,16 +1,12 @@
-<!-- app/views/categories/show.html.erb -->
+<h1><%= @category.name %> Details</h1>
 
-<h1><%= @category.name %> Category</h1>
+<p>Total Exchange Amount: <%= @total_amount %></p>
 
-<h2>Total Amount: <%= @total_amount %></h2>
-
-<h3>Exchanges:</h3>
-
+<h2>Exchange Items</h2>
 <ul>
   <% @exchanges.each do |exchange| %>
-    <li><%= exchange.name %>: <%= exchange.amount %></li>
+    <li><%= exchange.name %> - Amount: <%= exchange.amount %></li>
   <% end %>
 </ul>
 
-<%= link_to 'Back to Categories', categories_path %>
-<%= link_to 'New Exchange', new_category_exchange_path(@category), class: 'btn btn-primary' %>
+<%= link_to 'Create New Exchange', new_category_exchange_path(@category) %>

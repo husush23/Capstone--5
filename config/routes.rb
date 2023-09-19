@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     resources :categories do
-      resources :exchanges
+      resources :exchanges, only: [ :new, :create]
     end
   end
 

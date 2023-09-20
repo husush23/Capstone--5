@@ -1,0 +1,14 @@
+<h1><%= @category.name %> Details</h1>
+
+<p>Total Exchange Amount: <%= @total_amount %></p>
+
+<h2>Exchange Items</h2>
+<ul>
+  <% @exchanges.each do |exchange| %>
+    <li><%= exchange.name %> </li>
+    <li>  Amount: <%= exchange.amount %> </li>
+    <li>  <%= exchange.created_at %> </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Create New Exchange', new_category_exchange_path(@category) %>

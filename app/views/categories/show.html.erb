@@ -5,7 +5,9 @@
 <h2>Exchange Items</h2>
 <ul>
   <% @exchanges.each do |exchange| %>
-    <li><%= exchange.name %> - Amount: <%= exchange.amount %></li>
+    <li><%= exchange.name %> </li>
+    <li>  Amount: <%= exchange.amount %> </li>
+    <li>  <%= exchange.created_at %> </li>
   <% end %>
 </ul>
 

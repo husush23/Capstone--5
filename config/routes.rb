@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'pages/home'
   devise_for :users
 
   authenticated :user do
+    root "categories#index", as: :authenticated_root
     resources :categories do
       resources :exchanges, only: [ :new, :create]
     end
   end
 
-  root "categories#index"
+  root "splash#index"
 end

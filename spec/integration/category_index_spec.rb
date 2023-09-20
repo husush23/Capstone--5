@@ -14,9 +14,9 @@ RSpec.describe 'Categories', type: :feature do
     expect(current_path).to eq('/')
   end
 
-#   it 'should include template text' do
-#     expect(page).to have_content('Signed in successfully')
-#   end
+  #   it 'should include template text' do
+  #     expect(page).to have_content('Signed in successfully')
+  #   end
 
   it 'displays categories on the page' do
     visit categories_path

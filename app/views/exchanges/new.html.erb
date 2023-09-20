@@ -1,0 +1,38 @@
+<h1>New Exchange for <%= @category.name %></h1>
+
+<%= form_with(model: [@category, @exchange], local: true) do |form| %>
+  <% if @exchange.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exchange.errors.count, "error") %> prohibited this exchange from being saved:</h2>
+
+      <ul>
+        <% @exchange.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+<div class="field">
+  <%= form.label :category_ids, "Select Category" %>
+  <%= form.select :category_ids, options_for_select(current_user.categories.map { |c| [c.name, c.id] }, @exchange.category_ids), {}, multiple: true %>
+</div>
+
+
+  <div class="actions">
+    <%= form.submit 'Create Exchange' %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back to Category Details', category_path(@category) %>

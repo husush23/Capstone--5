@@ -1,25 +1,27 @@
 class ExchangesController < ApplicationController
-  before_action:
-  authenticate_user !def new
-  @category = category.find(params[:category_id])
-  @exchange = @category.exchanges.build
+  before_action :authenticate_user!
+
+  def new
+    @category = Category.find(params[:category_id])
+    @exchange = @category.exchanges.build
   end
+
   def create
-  @category = category.find(params[:category_id])
-  @exchange = @category.exchanges.build(exchange_params)
-  @exchange.author = current_user
-  if @exchange.save
-  redirect_to category_path(@category),;
-ExchangesControllerApplicationControllerbefore_action notice:
-  'Exchange added successfully'
-  else
-  puts @exchange.errors.full_messages # Add this line for debugging;
-render:
-  new
+    @category = Category.find(params[:category_id])
+    @exchange = @category.exchanges.build(exchange_params)
+    @exchange.author = current_user
+
+    if @exchange.save
+      redirect_to category_path(@category), notice: 'Exchange added successfully'
+    else
+      puts @exchange.errors.full_messages # Add this line for debugging
+      render :new
+    end
   end
-  end
+
   private
+
   def exchange_params
-  params.require(:exchange) .permit(:name, :amount, category_ids: [])
+    params.require(:exchange).permit(:name, :amount, category_ids: [])
   end
-  end;
+end

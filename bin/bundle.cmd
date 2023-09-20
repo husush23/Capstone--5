@@ -1,5 +1,5 @@
 @ruby -x "%~f0" %*
-  @exit /b %ERRORLEVEL%
+@exit /b %ERRORLEVEL%
 
 #!/usr/bin/env ruby
 # frozen_string_literal: true
@@ -96,6 +96,7 @@ m = Module.new do
     warn "Activating bundler (#{bundler_requirement}) failed:\n#{gem_error.message}\n\nTo install the version of bundler this project requires, run `gem install bundler -v '#{bundler_requirement}'`"
     exit 42
   end
+
   def activation_error_handling
     yield
     nil
@@ -103,7 +104,9 @@ m = Module.new do
     e
   end
 end
+
 m.load_bundler!
+
 if m.invoked_as_script?
   load Gem.bin_path("bundler", "bundle")
 end

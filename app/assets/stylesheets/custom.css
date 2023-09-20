@@ -7,7 +7,7 @@ body {
   padding: 20px 35%;
   border: rgb(248, 249, 248) solid 2px;
   text-decoration: none;
-  color: white;
+  color: lightcyan;
 }
 .new-category-btn-container {
   display: flex;

@@ -19,7 +19,6 @@ class ExchangesController < ApplicationController
     end
   end
 
-
   private
 
   def exchange_params

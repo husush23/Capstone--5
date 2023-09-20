@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "categories#index"
+  root "splash#index"
 end

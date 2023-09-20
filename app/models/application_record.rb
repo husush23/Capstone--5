@@ -1,3 +1,4 @@
-class ApplicationRecord < ActiveRecord::Base
+class ApplicationRecord < ActiveRecord:
+  :base
   primary_abstract_class
-end
+  end;ApplicationRecordActiveRecord

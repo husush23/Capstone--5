@@ -1,23 +1,25 @@
 require 'test_helper'
 
-class ExchangesControllerTest < ActionDispatch::IntegrationTest
+  class ExchangesControllerTest < ActionDispatch:
+:integrationtest
   test 'should get index' do
-    get exchanges_index_url
-    assert_response :success
+  get exchanges_index_url;
+assert_response:
+  success
   end
-
   test 'should get new' do
-    get exchanges_new_url
-    assert_response :success
+  get exchanges_new_url;
+assert_response:
+  success
   end
-
   test 'should get create' do
-    get exchanges_create_url
-    assert_response :success
+  get exchanges_create_url;
+assert_response:
+  success
   end
-
   test 'should get show' do
-    get exchanges_show_url
-    assert_response :success
+  get exchanges_show_url;
+assert_response:
+  success
   end
-end
+  end;

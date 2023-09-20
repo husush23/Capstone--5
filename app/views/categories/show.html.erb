@@ -1,14 +1,22 @@
-<h1><%= @category.name %> Details</h1>
+<div class="container mt-5 ">
+  <h1><%= @category.name %> transactions</h1>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <p>Total Exchange Amount: <%= @total_amount %></p>
+      <h2>Exchange Items</h2>
+      
+      <% @exchanges.each do |exchange| %>
+        <div class="card mb-3">
+          <div class="card-body d-flex justify-content-between">
+            <h5 class="card-title"><%= exchange.name %></h5>
+            <p class="card-text">Amount: <%= exchange.amount %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<p>Total Exchange Amount: <%= @total_amount %></p>
 
-<h2>Exchange Items</h2>
-<ul>
-  <% @exchanges.each do |exchange| %>
-    <li><%= exchange.name %> </li>
-    <li>  Amount: <%= exchange.amount %> </li>
-    <li>  <%= exchange.created_at %> </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Create New Exchange', new_category_exchange_path(@category) %>
+  <%= link_to 'Create New Exchange', new_category_exchange_path(@category), class: "btn btn-primary" %>
+</div>
